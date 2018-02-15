@@ -3,6 +3,7 @@ package androidadministration.com.deviceadministrator;
 import android.app.admin.DeviceAdminReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.UserHandle;
 import android.widget.Toast;
 
 /**
@@ -24,6 +25,14 @@ public class DeviceAdministrator extends DeviceAdminReceiver {
 
         super.onEnabled(context, intent);
         Toast.makeText(context, "Sample Device Admin has been enabled.", Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void onPasswordChanged(Context context, Intent intent, UserHandle user) {
+
+        super.onPasswordChanged(context, intent, user);
+        Toast.makeText(context, "Password has successfully been changed!", Toast.LENGTH_SHORT).show();
 
     }
 }
